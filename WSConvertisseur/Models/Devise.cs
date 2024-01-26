@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc.ApplicationParts;
+using System.ComponentModel.DataAnnotations;
 
 namespace WSConvertisseur.Models
 {
@@ -32,7 +33,7 @@ namespace WSConvertisseur.Models
                 id = value;
             }
         }
-
+        [Required]
         public string? NomDevise
         {
             get
