@@ -28,10 +28,16 @@ namespace WSConvertisseur.Controllers
         }
 
         // GET api/<DeviseController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet("{id}", Name = "GetDevise")]
+        public ActionResult<Devise> GetById(([FromRoute]int id)
         {
-            return "value";
+            Devise? devise = listDevise.FirstOrDefault((d) => d.Id == id);
+            
+            if (devise == null)
+            {
+                return NotFound();
+            }
+            return devise;
         }
 
         // POST api/<DeviseController>
